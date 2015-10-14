@@ -1,0 +1,17 @@
+---
+
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: ntp
+
+
+- name: Service Started | NTP
+  service:
+    state: started
+    name: ntp-server
+    enabled: yes
+  tags:
+    - validation
+    - using-service
+    - newrelic
